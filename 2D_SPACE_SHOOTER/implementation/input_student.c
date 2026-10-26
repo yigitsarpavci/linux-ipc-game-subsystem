@@ -126,11 +126,25 @@ int so_load(const char *path) {
     if (so_handle != NULL)
         so_unload();
 
-    const char *actual_path = path;
     char alt_path[256];
+    const char *actual_path = path;
 
-    // If path is not directly accessible, try resolving with same filename
-    if (access(path, F_OK) != 0) {
+    // dlopen requires a slash ('/') to treat relative paths relative to cwd.
+    // Prepend "./" if no directory component is present in path.
+    if (strchr(path, '/') == NULL) {
+        snprintf(alt_path, sizeof(alt_path), "./%s", path);
+        if (access(alt_path, F_OK) == 0) {
+            actual_path = alt_path;
+        } else {
+            snprintf(alt_path, sizeof(alt_path), "implementation/%s", path);
+            if (access(alt_path, F_OK) == 0)
+                actual_path = alt_path;
+            else {
+                snprintf(alt_path, sizeof(alt_path), "./%s", path);
+                actual_path = alt_path;
+            }
+        }
+    } else if (access(path, F_OK) != 0) {
         const char *base = strrchr(path, '/');
         const char *fname = base ? base + 1 : path;
         snprintf(alt_path, sizeof(alt_path), "./%s", fname);

@@ -49,11 +49,8 @@ int fifo_init(void) {
 
     const char *path = get_fifo_path();
 
-    // If a stale non-FIFO file exists at the path, remove it first
-    struct stat st;
-    if (stat(path, &st) == 0 && !S_ISFIFO(st.st_mode)) {
-        unlink(path);
-    }
+    // Unlink any stale FIFO or file so the game always opens a fresh, empty pipe
+    unlink(path);
 
     if (mkfifo(path, 0666) != 0 && errno != EEXIST)
         return -1;
