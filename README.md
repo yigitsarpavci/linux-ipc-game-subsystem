@@ -243,8 +243,6 @@ The game scenario is won automatically by `implementation/ctl.sh`:
 ├── LICENSE                                 # MIT License
 ├── README.md                               # Publication-grade technical documentation
 ├── .gitignore                              # Build and runtime artifact ignore rules
-├── 2023400048.zip                          # Official academic submission package
-├── project_description.pdf                 # Complete specification and requirements
 └── 2D_SPACE_SHOOTER/                       # Core simulation engine and implementation
     ├── Makefile                            # Low-level build engine (-Wall -Wextra -O2)
     ├── run.sh                              # Universal runner (builds, runs, handles modes)
@@ -355,11 +353,26 @@ This implementation strictly complies with all academic and operational constrai
 
 ## Related Projects
 
-- **[Solar-Escape-RISCV-Navigator](https://github.com/yigitsarpavci/bare-metal-riscv-simulator)**: Bare-metal RISC-V assembly simulation for fuel-constrained westward autonomous flight navigation.
-- **[SchedSim-CPU-Scheduler](https://github.com/yigitsarpavci/x86-64-cpu-scheduler)**: Low-level CPU scheduling simulator written entirely in x86-64 GNU Assembly using direct Linux syscalls.
-- **[CoreMark-Workload-Profiling](https://github.com/yigitsarpavci/coremark-performance-profiling)**: Architectural benchmarking study and compiler optimization evaluation suite across RISC-V ISA extensions.
-- **[Spireslayer-Command-Interpreter](https://github.com/yigitsarpavci/unix-command-interpreter)**: C-based command interpreter featuring a custom recursive descent parser and backtracking logic.
-- **[Aura-Functional-Interpreter](https://github.com/yigitsarpavci/functional-language-interpreter)**: Custom functional programming language interpreter with first-class closures and lexical scoping.
+- **[Low-Level Systems & Computer Architecture Lab](https://github.com/yigitsarpavci/low-level-systems-lab)**:
+  - **[01-x86-64-cpu-scheduler](https://github.com/yigitsarpavci/low-level-systems-lab/tree/main/01-x86-64-cpu-scheduler)**: Zero-libc x86-64 Assembly CPU process scheduler using direct Linux syscalls (`sys_read`, `sys_write`, `sys_exit`).
+  - **[02-bare-metal-riscv-simulator](https://github.com/yigitsarpavci/low-level-systems-lab/tree/main/02-bare-metal-riscv-simulator)**: Bare-metal RISC-V (`rv32i`) assembly flight pathfinding simulation on Spike with custom `.ld` linker script.
+  - **[03-unix-command-interpreter](https://github.com/yigitsarpavci/low-level-systems-lab/tree/main/03-unix-command-interpreter)**: Modular C11 command-line interpreter featuring a two-stage recursive-descent parser and backtracking grammar engine.
+  - **[04-coremark-performance-profiling](https://github.com/yigitsarpavci/low-level-systems-lab/tree/main/04-coremark-performance-profiling)**: Empirical EEMBC CoreMark profiling across GCC optimization flags (`-O0` to `-Ofast`) and modular RISC-V ISA extensions.
+  - **[05-riscv-pipeline-hazard-analysis](https://github.com/yigitsarpavci/low-level-systems-lab/tree/main/05-riscv-pipeline-hazard-analysis)**: Cycle-accurate RTL pipeline hazard analysis (`ForwardAE`/`ForwardBE`, `StallF`/`StallD`, `FlushD`/`FlushE`) on CORE-V Wally (`rv32i`).
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## Author
+
+**Yiğit Sarp Avcı**  
+Computer Engineering Student @ Boğaziçi University  
+[GitHub Profile](https://github.com/yigitsarpavci) · [LinkedIn](https://www.linkedin.com/in/yigitsarpavci)
 
 ---
 
